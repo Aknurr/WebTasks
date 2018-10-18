@@ -1,0 +1,43 @@
+<html>
+
+  <head>
+  <script type="text/javascript">
+
+  function getCity(c1,c2){
+    var c1=document.getElementById(c1);
+    var c2=document.getElementById(c2);
+
+    c2.innerHTML="";
+    if(c1.value=="Kazakhstan"){
+        var optionArray=["|","almaty|Almaty","astana|Astana","aktobe|Aktobe"]
+    }
+    for(var option in optionArray ){
+      var pair=optionArray[option].split("|");
+      var newOption=document.createElement("option");
+      newOption.value=pair[0];
+      newOption.innerHTML=pair[1];
+      c2.options.add(newOption);
+    }
+  
+    }
+  </script>
+  </head>
+
+
+  <body>
+  <hr/>
+Choose country:
+    <select id="countries" name="countries" onchange="getCity(this.id,'cities')">
+      <option >Select country</option>
+      <option value="Kazakhstan">Kazakhstan</option>
+        <option value="Russia">Russia</option>
+        <option value="England">England</option>
+        <option value="France">France</option>
+    </select>
+  </hr>
+
+    <select id="cities" name="cities">
+    </select>
+  </body>
+
+</html>
